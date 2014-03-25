@@ -13,6 +13,7 @@ let s:converter = {
 function! s:converter.filter(candidates, context) "{{{
     for candidate in a:candidates
         let candidate.abbr = substitute(candidate.abbr, '\s\[.*]\s.*$', '', '')
+        let candidate.abbr = substitute(candidate.abbr, '^\d+ .. ', '', '')
     endfor
   return a:candidates
 endfunction"}}}
